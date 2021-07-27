@@ -31,7 +31,7 @@ jobs:
     - name: build htrace.sh:dev image
       if: ${{ github.event_name == 'push'}}
       run: |
-        docker build -t ghcr.io/deamwork/htrace.sh:dev .
+        docker build -f build/Dockerfile -t ghcr.io/deamwork/htrace.sh:dev .
     - name: publish htrace.sh:dev image
       if: ${{ github.event_name == 'push'}}
       run: |
@@ -43,7 +43,7 @@ jobs:
     - name: build htrace.sh:$RELEASE_VERSION release image
       if: ${{ github.event_name == 'release'}}
       run: |
-        docker build -t ghcr.io/deamwork/htrace.sh:$RELEASE_VERSION .
+        docker build -f build/Dockerfile -t ghcr.io/deamwork/htrace.sh:$RELEASE_VERSION .
     - name: publish htrace.sh:$RELEASE_VERSION release image
       if: ${{ github.event_name == 'release'}}
       run: |
